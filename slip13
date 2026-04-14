@@ -1,0 +1,55 @@
+Q1:
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Digit in Words</title>
+</head>
+<body>
+
+<h2>Digits in Words</h2>
+
+<form method="post">
+    Enter Number: <input type="text" name="number" required>
+    <input type="submit" value="Convert">
+</form>
+
+<br>
+
+<?php
+if (isset($_POST['number'])) {
+
+    $number = $_POST['number']; // ✅ fixed semicolon
+
+    $digits = str_split($number);
+
+    $words = array(
+        "0" => "Zero",
+        "1" => "One",
+        "2" => "Two",
+        "3" => "Three",
+        "4" => "Four",
+        "5" => "Five",
+        "6" => "Six",
+        "7" => "Seven",
+        "8" => "Eight",
+        "9" => "Nine"
+    );
+
+    echo "<strong>Entered Number:</strong> " . $number . "<br><br>";
+    echo "<strong>Digits in Words:</strong><br>";
+
+    foreach ($digits as $digit) {
+        if (array_key_exists($digit, $words)) {
+            echo $words[$digit] . " ";
+        }
+    }
+}
+?>
+
+</body>
+</html>
+
+
+Q2:
+
