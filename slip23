@@ -1,0 +1,218 @@
+Q1:
+
+<html>
+<head>
+    <title>Employee Profile</title>
+    <style>
+        table {
+            width: 100%;
+        }
+        td {
+            vertical-align: top;
+            padding: 10px;
+        }
+        .left {
+            width: 20%;
+            background-color: #f0f0f0;
+        }
+        .right {
+            width: 80%;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+
+    <script>
+        function showHR() {
+            document.getElementById("content").innerHTML =
+                "<h2>Contact HR</h2>" +
+                "Department: Human Resources<br>" +
+                "Email: hr@company.com<br>" +
+                "Phone: 9876543210";
+        }
+    </script>
+</head>
+
+<body>
+
+<table border="1">
+
+<tr>
+
+<!-- LEFT COLUMN -->
+<td class="left">
+    <h3>Menu</h3>
+    <a href="#">Home</a><br><br>
+    <a href="#">About Us</a><br><br>
+    <a href="#" onclick="showHR()">Contact HR</a>
+</td>
+
+
+<td class="right" id="content">
+
+<h2>Employee Profile</h2>
+
+Employee ID: 101<br><br>
+Name: John Doe<br><br>
+Designation: Software Developer<br><br>
+Department: IT<br><br>
+Email: john@example.com<br><br>
+
+Photo:<br>
+<img src="https://via.placeholder.com/150">
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+</html>
+
+<html>
+<head>
+    <title>Employee Profile</title>
+    <style>
+        table {
+            width: 100%;
+        }
+        td {
+            vertical-align: top;
+            padding: 10px;
+        }
+        .left {
+            width: 20%;
+            background-color: #f0f0f0;
+        }
+        .right {
+            width: 80%;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+
+    <script>
+        function showHR() {
+            document.getElementById("content").innerHTML =
+                "<h2>Contact HR</h2>" +
+                "Department: Human Resources<br>" +
+                "Email: hr@company.com<br>" +
+                "Phone: 9876543210";
+        }
+    </script>
+</head>
+
+<body>
+
+<table border="1">
+
+<tr>
+
+<!-- LEFT COLUMN -->
+<td class="left">
+    <h3>Menu</h3>
+    <a href="#">Home</a><br><br>
+    <a href="#">About Us</a><br><br>
+    <a href="#" onclick="showHR()">Contact HR</a>
+</td>
+
+<!-- RIGHT COLUMN -->
+<td class="right" id="content">
+
+<h2>Employee Profile</h2>
+
+Employee ID: 101<br><br>
+Name: John Doe<br><br>
+Designation: Software Developer<br><br>
+Department: IT<br><br>
+Email: john@example.com<br><br>
+
+Photo:<br>
+<img src="https://via.placeholder.com/150">
+
+</td>
+
+</tr>
+
+</table>
+
+</body>
+</html>
+
+Q2:
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Feedback Form</title>
+</head>
+
+<body>
+
+<h2>Feedback Form</h2>
+
+<form onsubmit="return showFeedback()">
+    
+    Name:<br>
+    <input type="text" id="name" required><br><br>
+
+    Email:<br>
+    <input type="email" id="email" required><br><br>
+
+    Feedback Message:<br>
+    <textarea id="message" required></textarea><br><br>
+
+    Rating (1–5):<br>
+    <select id="rating">
+        <option value="1">1 Star</option>
+        <option value="2">2 Stars</option>
+        <option value="3">3 Stars</option>
+        <option value="4">4 Stars</option>
+        <option value="5">5 Stars</option>
+    </select><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<hr>
+
+<div id="output" style="display:none;">
+    <h3>Submitted Feedback</h3>
+
+    <p><b>Name:</b> <span id="outName"></span></p>
+    <p><b>Email:</b> <span id="outEmail"></span></p>
+    <p><b>Feedback:</b> <span id="outMessage"></span></p>
+    <p><b>Rating:</b> <span id="outStars"></span></p>
+</div>
+
+<script>
+function showFeedback() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+    var rating = document.getElementById("rating").value;
+
+    var stars = "";
+
+    for (var i = 0; i < rating; i++) {
+        stars += "⭐";   // better than *
+    }
+
+    document.getElementById("outName").innerHTML = name;
+    document.getElementById("outEmail").innerHTML = email;
+    document.getElementById("outMessage").innerHTML = message;
+    document.getElementById("outStars").innerHTML = stars;
+
+    document.getElementById("output").style.display = "block";
+
+    return false; // prevent page refresh
+}
+</script>
+
+</body>
+</html>
