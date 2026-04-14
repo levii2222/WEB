@@ -1,0 +1,126 @@
+Q1:
+
+cyl.html
+
+<html>
+<head>
+ <title>Cylinder Form</title>
+</head>
+<body>
+
+<h2>Enter Dimensions of Cylinder</h2>
+
+<form method="post" action="cylinder.php">
+ Radius: <input type="number" name="radius" step="any" required><br><br>
+ Height: <input type="number" name="height" step="any" required><br><br>
+
+ <input type="submit" value="Calculate">
+</form>
+
+</body>
+</html>
+
+cy.php
+<?php
+
+function calculateCylinder($r, $h)
+{
+    $area = 2 * pi() * $r * ($r + $h); // Surface Area
+    $volume = pi() * $r * $r * $h;     // Volume
+
+    return array($area, $volume);
+}
+
+// Check if form is submitted
+if (isset($_POST['radius']) && isset($_POST['height'])) {
+
+    $radius = $_POST['radius'];
+    $height = $_POST['height'];
+
+    // Validate numeric input
+    if (!is_numeric($radius) || !is_numeric($height)) {
+        echo "Please enter valid numbers!";
+        exit();
+    }
+
+    list($area, $volume) = calculateCylinder($radius, $height);
+
+    echo "<h2>Cylinder Results</h2>";
+    echo "Radius: " . $radius . "<br><br>";
+    echo "Height: " . $height . "<br><br>";
+    echo "Surface Area: " . $area . "<br><br>";
+    echo "Volume: " . $volume;
+
+} else {
+    echo "Please submit the form first!";
+}
+?>
+
+Q2:
+
+com.html
+<html>
+<head>
+    <title>String Operations</title>
+</head>
+<body>
+
+<h2>String Operations</h2>
+
+<form method="post" action="string.php">
+    
+    Enter String 1: <input type="text" name="str1" required><br><br>
+    Enter String 2: <input type="text" name="str2"><br><br>
+
+    <b>Select Operation:</b><br>
+    
+    <input type="radio" name="operation" value="compare" required> Compare Strings<br>
+    <input type="radio" name="operation" value="upper"> Convert to Uppercase<br>
+    <input type="radio" name="operation" value="lower"> Convert to Lowercase<br><br>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>
+
+phpscript.php
+
+<?php
+
+// Check form submission
+if (isset($_POST['operation'])) {
+
+    $str1 = $_POST['str1'];
+    $str2 = $_POST['str2'];
+    $operation = $_POST['operation'];
+
+    echo "<h2>Result</h2>";
+
+    switch ($operation) {
+
+        case "compare":
+            if ($str1 == $str2) {
+                echo "Both strings are equal.";
+            } else {
+                echo "Strings are NOT equal.";
+            }
+            break;
+
+        case "upper":
+            echo "Uppercase String: " . strtoupper($str1);
+            break;
+
+        case "lower":
+            echo "Lowercase String: " . strtolower($str1);
+            break;
+
+        default:
+            echo "Invalid Operation!";
+    }
+
+} else {
+    echo "Please select an operation!";
+}
+?>
