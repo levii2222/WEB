@@ -1,0 +1,56 @@
+Q1:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Colored Lines</title>
+</head>
+<body>
+
+<p style="color:red;">This line is Red</p>
+<p style="color:blue;">This line is Blue</p>
+<p style="color:green;">This line is Green</p>
+<p style="color:orange;">This line is Orange</p>
+<p style="color:purple;">This line is Purple</p>
+<p style="color:brown;">This line is Brown</p>
+<p style="color:pink;">This line is Pink</p>
+
+</body>
+</html>
+
+Q2:
+<html>
+<head>
+ <title>Password Validation</title>
+</head>
+<body>
+<h2>Login Form</h2>
+<form method="post" action="validate.php">
+ Username: <input type="text" name="username" required><br><br>
+ Password: <input type="password" name="password" required><br><br>
+
+ <input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+<?php
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+// Use correct variable name
+$length = strlen($password) > 8;
+$hasupper = preg_match("/[A-Z]/", $password);
+$haslower = preg_match("/[a-z]/", $password);
+$hasspe = preg_match("/[^a-zA-Z0-9]/", $password);
+$hasno = preg_match("/[0-9]/", $password);
+
+echo "<h2>Password validation result</h2>";
+
+if ($length && $hasupper && $haslower && $hasspe && $hasno) {
+    echo "<div style='color:green;'>You entered a strong password</div>";
+} else {
+    echo "<div style='color:red;'>Please enter a complex password</div>";
+}
+?>
+
+
