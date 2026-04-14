@@ -1,0 +1,147 @@
+Q1:
+
+pro.html
+<html>
+<head>
+ <title>Product Selection</title>
+</head>
+<body>
+
+<h2>Select Products</h2>
+
+<form method="post" action="bill.php">
+
+ <h3>Books (Price: 200)</h3>
+ Quantity: <input type="number" name="book_qty" min="0" value="0"><br><br>
+
+ <h3>Pens (Price: 10)</h3>
+ Quantity: <input type="number" name="pen_qty" min="0" value="0"><br><br>
+
+ <h3>Bags (Price: 500)</h3>
+ Quantity: <input type="number" name="bag_qty" min="0" value="0"><br><br>
+
+ <input type="submit" value="Generate Bill">
+
+</form>
+
+</body>
+</html>
+
+pro.php
+
+<?php
+
+// Check if form submitted
+if (isset($_POST['book_qty'])) {
+
+    // Prices
+    $book_price = 200;
+    $pen_price = 10;
+    $bag_price = 500;
+
+    // Quantities (convert to int for safety)
+    $book_qty = (int) $_POST['book_qty'];
+    $pen_qty = (int) $_POST['pen_qty'];
+    $bag_qty = (int) $_POST['bag_qty'];
+
+    // Calculate totals
+    $book_total = $book_qty * $book_price;
+    $pen_total = $pen_qty * $pen_price;
+    $bag_total = $bag_qty * $bag_price;
+
+    $grand_total = $book_total + $pen_total + $bag_total;
+
+    echo "<h2>Bill Details</h2>";
+
+    echo "Books: $book_qty × 200 = $book_total <br><br>";
+    echo "Pens: $pen_qty × 10 = $pen_total <br><br>";
+    echo "Bags: $bag_qty × 500 = $bag_total <br><br>";
+
+    echo "<h3>Grand Total: $grand_total</h3>";
+
+} else {
+    echo "Please select products first!";
+}
+?>
+
+Q2:
+
+✅ OWASP Top 10 Threats for Web Applications – Detailed Explanation
+🔷 Introduction
+
+The OWASP (Open Web Application Security Project) is a global non-profit organization focused on improving the security of software and web applications.
+It publishes a standard awareness document known as the OWASP Top 10, which lists the most critical security risks faced by web applications.
+
+These threats help developers, testers, and organizations to understand common vulnerabilities and take preventive measures to secure their applications.
+
+🔥 OWASP Top 10 Threats
+1. Broken Access Control
+
+Broken Access Control occurs when restrictions on authenticated users are not properly enforced.
+Attackers can access unauthorized data or perform actions beyond their permissions.
+
+Example: A user accessing another user’s account or admin panel.
+Prevention: Implement proper role-based access control and authorization checks.
+
+2. Cryptographic Failures
+
+This refers to failures related to encryption and protection of sensitive data such as passwords, credit card details, etc.
+
+Example: Storing passwords in plain text.
+Prevention: Use strong encryption algorithms and hashing (e.g., password hashing).
+
+3. Injection Attacks
+
+Injection flaws occur when untrusted data is sent to an interpreter as part of a command or query.
+
+Example: SQL Injection (' OR 1=1 --) can bypass login.
+Prevention: Use prepared statements, input validation, and parameterized queries.
+
+4. Insecure Design
+
+Insecure design is a broader category that represents flaws in the application’s architecture and design.
+
+Example: Lack of input validation or missing security controls.
+Prevention: Follow secure design principles and threat modeling.
+
+5. Security Misconfiguration
+
+This happens due to improper configuration of security settings in applications, servers, or databases.
+
+Example: Default passwords, open ports, unnecessary services enabled.
+Prevention: Regular security audits and proper configuration management.
+
+6. Vulnerable and Outdated Components
+
+Using outdated libraries, frameworks, or software components can expose known vulnerabilities.
+
+Example: Old plugins with known security bugs.
+Prevention: Keep software and dependencies updated.
+
+7. Identification and Authentication Failures
+
+This includes weaknesses in login systems, session management, and authentication mechanisms.
+
+Example: Weak passwords, no session timeout, session hijacking.
+Prevention: Use strong password policies, multi-factor authentication (MFA).
+
+8. Software and Data Integrity Failures
+
+This occurs when applications rely on untrusted sources for software updates or data.
+
+Example: Installing malicious updates or plugins.
+Prevention: Use digital signatures and trusted sources.
+
+9. Security Logging and Monitoring Failures
+
+Lack of proper logging and monitoring makes it difficult to detect and respond to attacks.
+
+Example: Not recording failed login attempts.
+Prevention: Enable logging, monitoring, and alert systems.
+
+10. Server-Side Request Forgery (SSRF)
+
+SSRF allows attackers to trick the server into making requests to internal or external systems.
+
+Example: Accessing internal APIs or sensitive resources.
+Prevention: Validate URLs and restrict outgoing requests.
