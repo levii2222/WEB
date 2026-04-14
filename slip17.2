@@ -1,0 +1,60 @@
+Q2:
+
+<?php
+$xml = new DOMDocument("1.0", "UTF-8");
+$xml->formatOutput = true;
+
+// Root element
+$registrations = $xml->createElement("CourseRegistrations");
+$xml->appendChild($registrations);
+
+// -------- Record 1 --------
+$r1 = $xml->createElement("Registration");
+$r1->appendChild($xml->createElement("RegistrationID", "301"));
+$r1->appendChild($xml->createElement("StudentName", "Rahul"));
+$r1->appendChild($xml->createElement("CourseName", "Database Management System"));
+$r1->appendChild($xml->createElement("Instructor", "Dr. Sharma"));
+$r1->appendChild($xml->createElement("DateOfRegistration", "2024-01-10"));
+$registrations->appendChild($r1);
+
+// -------- Record 2 --------
+$r2 = $xml->createElement("Registration");
+$r2->appendChild($xml->createElement("RegistrationID", "302"));
+$r2->appendChild($xml->createElement("StudentName", "Priya"));
+$r2->appendChild($xml->createElement("CourseName", "Computer Networks"));
+$r2->appendChild($xml->createElement("Instructor", "Prof. Mehta"));
+$r2->appendChild($xml->createElement("DateOfRegistration", "2024-01-12"));
+$registrations->appendChild($r2);
+
+// -------- Record 3 --------
+$r3 = $xml->createElement("Registration");
+$r3->appendChild($xml->createElement("RegistrationID", "303"));
+$r3->appendChild($xml->createElement("StudentName", "Amit"));
+$r3->appendChild($xml->createElement("CourseName", "Web Technology"));
+$r3->appendChild($xml->createElement("Instructor", "Ms. Patil"));
+$r3->appendChild($xml->createElement("DateOfRegistration", "2024-01-15"));
+$registrations->appendChild($r3);
+
+// -------- Record 4 --------
+$r4 = $xml->createElement("Registration");
+$r4->appendChild($xml->createElement("RegistrationID", "304"));
+$r4->appendChild($xml->createElement("StudentName", "Sneha"));
+$r4->appendChild($xml->createElement("CourseName", "Software Engineering"));
+$r4->appendChild($xml->createElement("Instructor", "Dr. Kulkarni"));
+$r4->appendChild($xml->createElement("DateOfRegistration", "2024-01-18"));
+$registrations->appendChild($r4);
+
+// -------- Record 5 --------
+$r5 = $xml->createElement("Registration");
+$r5->appendChild($xml->createElement("RegistrationID", "305"));
+$r5->appendChild($xml->createElement("StudentName", "Karan"));
+$r5->appendChild($xml->createElement("CourseName", "Data Structures"));
+$r5->appendChild($xml->createElement("Instructor", "Prof. Singh"));
+$r5->appendChild($xml->createElement("DateOfRegistration", "2024-01-20"));
+$registrations->appendChild($r5);
+
+// Save XML file
+$xml->save("CourseRegistrations.xml");
+
+echo "CourseRegistrations.xml file created successfully!";
+?>
