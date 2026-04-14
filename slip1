@@ -1,0 +1,138 @@
+Q1 :
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Profile</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Main container */
+.container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    border: 1px solid black;
+}
+
+/* Left column */
+.column1 {
+    width: 25%;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+/* Right column */
+.column2 {
+    width: 75%;
+    padding: 20px;
+}
+
+/* Links */
+a {
+    display: block;
+    margin: 10px 0;
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+}
+
+/* Image */
+img {
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2 style="text-align:center;">Student Profile Page</h2>
+
+<div class="container">
+
+    <!-- Column 1 -->
+    <div class="column1">
+        <h3>Menu</h3>
+        <a href="#">Home</a>
+        <a href="#">Contact Us</a>
+        <a href="#">About Us</a>
+    </div>
+
+    <!-- Column 2 -->
+    <div class="column2">
+        <h3>Student Details</h3>
+        <p><b>Roll Number:</b> 101</p>
+        <p><b>Name:</b> Nikita</p>
+        <p><b>Contact:</b> 9876543210</p>
+        <p><b>Class:</b> TYBSc IT</p>
+        <p><b>Area of Interest:</b> Web Development</p>
+        <p><b>Photo:</b></p>
+        <img src="student.jpg" alt="Student Photo">
+    </div>
+
+</div>
+
+</body>
+</html>
+
+Q2:
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login Form</title>
+
+<script>
+function checkLogin() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    if (username === "admin" && password === "1234") {
+        alert("Welcome");
+    } else {
+        alert("Invalid username or password");
+    }
+}
+</script>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;   /* center horizontally */
+        align-items: center;       /* center vertically */
+        height: 100vh;             /* full screen height */
+        margin: 0;
+    }
+
+    div {
+        border: 3px solid black;
+        padding: 20px;
+        width: 200px;
+        text-align: center;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div>
+    <h2>Login Form</h2>
+    <form onsubmit="checkLogin(); return false;">
+        Username:<br>
+        <input type="text" id="username" required><br><br>
+
+        Password:<br>
+        <input type="password" id="password" required><br><br>
+
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+</body>
+</html>
