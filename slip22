@@ -1,0 +1,107 @@
+Q1:
+
+<html>
+<head>
+ <title>Password Validation</title>
+</head>
+<body>
+<h2>Login Form</h2>
+<form method="post" action="validate.php">
+ Username: <input type="text" name="username" required><br><br>
+ Password: <input type="password" name="password" required><br><br>
+
+ <input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+<?php
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+// Use correct variable name
+$length = strlen($password) > 8;
+$hasupper = preg_match("/[A-Z]/", $password);
+$haslower = preg_match("/[a-z]/", $password);
+$hasspe = preg_match("/[^a-zA-Z0-9]/", $password);
+$hasno = preg_match("/[0-9]/", $password);
+
+echo "<h2>Password validation result</h2>";
+
+if ($length && $hasupper && $haslower && $hasspe && $hasno) {
+    echo "<div style='color:green;'>You entered a strong password</div>";
+} else {
+    echo "<div style='color:red;'>Please enter a complex password</div>";
+}
+?>
+
+
+Q2:
+OWASP Top 10 API Security Risks (OWASP API Top 10)
+🔷 Introduction
+
+APIs (Application Programming Interfaces) are widely used in modern web and mobile applications. However, they are highly exposed and can be vulnerable to attacks.
+The OWASP has published the OWASP API Top 10, which lists the most critical security risks specific to APIs.
+
+These risks help developers secure APIs and protect sensitive data.
+
+🔥 OWASP API Top 10 Threats
+1. Broken Object Level Authorization (BOLA)
+Occurs when APIs do not properly verify user access to objects
+Attackers can access data of other users
+
+Example: Accessing another user’s profile by changing ID
+
+2. Broken Authentication
+Weak authentication mechanisms
+Leads to account takeover
+
+Example: Weak passwords or missing token validation
+
+3. Broken Object Property Level Authorization
+Improper access control at property level
+Users can modify sensitive fields
+
+Example: Changing user role from “user” to “admin”
+
+4. Unrestricted Resource Consumption
+No limits on API usage
+Can lead to DoS (Denial of Service)
+
+Example: Unlimited requests crashing server
+
+5. Broken Function Level Authorization
+Missing checks for user roles
+Unauthorized access to functions
+
+Example: Normal user accessing admin API
+
+6. Unrestricted Access to Sensitive Business Flows
+No restriction on critical processes
+Abuse of business logic
+
+Example: Placing multiple fake orders
+
+7. Server Side Request Forgery (SSRF)
+API fetches remote data without validation
+Attackers access internal systems
+
+Example: Requesting internal server URLs
+
+8. Security Misconfiguration
+Improper API configuration
+Default settings, open endpoints
+
+Example: Debug mode enabled in production
+
+9. Improper Inventory Management
+Untracked or outdated APIs
+Exposed old versions
+
+Example: Old API version still accessible
+
+10. Unsafe Consumption of APIs
+Trusting external APIs without validation
+Leads to data compromise
+
+Example: Using third-party API without verifying response
