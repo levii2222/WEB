@@ -1,0 +1,94 @@
+Q1:
+
+✅ Short Report on Web Security Threat
+🔷 Introduction
+
+Web applications are often vulnerable to various security threats that can compromise user data and system integrity. One of the most common threats is Injection Attack (SQL Injection), where attackers manipulate database queries to gain unauthorized access.
+
+🅐 a) Identified Threat: SQL Injection
+
+The identified threat is SQL Injection, a type of injection attack in which malicious SQL code is inserted into input fields to manipulate the database.
+
+👉 It occurs when user input is not properly validated or sanitized before being used in SQL queries.
+
+Example:
+
+SELECT * FROM users WHERE username = 'admin' AND password = '1234';
+
+An attacker can modify input like:
+
+' OR 1=1 --
+
+This makes the condition always true and bypasses authentication.
+
+🅑 b) How the Threat Was Exploited
+
+The vulnerability was exploited through a login form that directly used user input in SQL queries without validation.
+
+Steps of exploitation:
+
+Attacker enters malicious input in username/password field
+Input is directly inserted into SQL query
+Database executes manipulated query
+Attacker gains unauthorized access
+
+👉 Because there was no input validation or prepared statements, the system accepted harmful input.
+
+🅒 c) Steps Taken to Mitigate the Vulnerability
+
+To prevent SQL Injection, the following steps were implemented:
+
+✔ 1. Use Prepared Statements
+Queries are executed with placeholders
+Prevents execution of malicious SQL code
+$stmt = mysqli_prepare($conn, "SELECT * FROM users WHERE username=? AND password=?");
+✔ 2. Input Validation
+Check and sanitize user inputs
+Allow only expected characters
+✔ 3. Password Hashing
+Store passwords securely using hashing
+Example: password_hash()
+✔ 4. Least Privilege Principle
+Database users are given minimal access rights
+✔ 5. Error Handling
+Avoid displaying database errors to users
+
+Q2:
+
+<?php
+$xml = new DOMDocument("1.0", "UTF-8");
+$xml->formatOutput = true;
+
+
+$timetable = $xml->createElement("Timetable");
+$xml->appendChild($timetable);
+
+$r1 = $xml->createElement("Schedule");
+$r1->appendChild($xml->createElement("Day", "Monday"));
+$r1->appendChild($xml->createElement("ClassName", "Database Management System"));
+$r1->appendChild($xml->createElement("Instructor", "Dr. Sharma"));
+$r1->appendChild($xml->createElement("TimeSlot", "10:00 AM - 11:00 AM"));
+$r1->appendChild($xml->createElement("Classroom", "Room 101"));
+$timetable->appendChild($r1);
+
+$r2 = $xml->createElement("Schedule");
+$r2->appendChild($xml->createElement("Day", "Wednesday"));
+$r2->appendChild($xml->createElement("ClassName", "Computer Networks"));
+$r2->appendChild($xml->createElement("Instructor", "Prof. Mehta"));
+$r2->appendChild($xml->createElement("TimeSlot", "11:00 AM - 12:00 PM"));
+$r2->appendChild($xml->createElement("Classroom", "Room 102"));
+$timetable->appendChild($r2);
+
+$r3 = $xml->createElement("Schedule");
+$r3->appendChild($xml->createElement("Day", "Friday"));
+$r3->appendChild($xml->createElement("ClassName", "Web Technology"));
+$r3->appendChild($xml->createElement("Instructor", "Ms. Patil"));
+$r3->appendChild($xml->createElement("TimeSlot", "01:00 PM - 02:00 PM"));
+$r3->appendChild($xml->createElement("Classroom", "Room 103"));
+$timetable->appendChild($r3);
+
+// Save XML file
+$xml->save("Timetable.xml");
+
+echo "Timetable.xml file created successfully!";
+?>
