@@ -1,0 +1,70 @@
+Q1:
+
+<html>
+<head>
+    <title>Product Selection</title>
+</head>
+<body>
+
+<h2>Select Products</h2>
+
+<form method="post" action="bill.php">
+
+    <h3>Books (₹200)</h3>
+    Quantity: <input type="number" name="book_qty" min="0" value="0"><br><br>
+
+    <h3>Pens (₹10)</h3>
+    Quantity: <input type="number" name="pen_qty" min="0" value="0"><br><br>
+
+    <h3>Bags (₹500)</h3>
+    Quantity: <input type="number" name="bag_qty" min="0" value="0"><br><br>
+
+    <input type="submit" value="Generate Bill">
+
+</form>
+
+</body>
+</html>
+
+bill.php
+
+<?php
+
+// Prices
+$book_price = 200;
+$pen_price = 10;
+$bag_price = 500;
+
+// Get quantities
+$book_qty = (int)$_POST['book_qty'];
+$pen_qty = (int)$_POST['pen_qty'];
+$bag_qty = (int)$_POST['bag_qty'];
+
+// Total quantity
+$total_qty = $book_qty + $pen_qty + $bag_qty;
+
+// Calculate cost
+$book_total = $book_qty * $book_price;
+$pen_total = $pen_qty * $pen_price;
+$bag_total = $bag_qty * $bag_price;
+
+$total_cost = $book_total + $pen_total + $bag_total;
+
+// Display result
+echo "<h2>Bill Details</h2>";
+
+echo "<b>Selected Items:</b><br><br>";
+
+if ($book_qty > 0)
+    echo "Books: $book_qty × ₹200 = ₹$book_total <br>";
+
+if ($pen_qty > 0)
+    echo "Pens: $pen_qty × ₹10 = ₹$pen_total <br>";
+
+if ($bag_qty > 0)
+    echo "Bags: $bag_qty × ₹500 = ₹$bag_total <br>";
+
+echo "<br><b>Total Quantity:</b> $total_qty <br>";
+echo "<b>Total Cost:</b> ₹$total_cost";
+
+?>
