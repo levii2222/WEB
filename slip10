@@ -1,0 +1,113 @@
+Q1:
+<?php
+$xml = new DOMDocument("1.0", "UTF-8");
+$xml->formatOutput = true;
+
+
+$students = $xml->createElement("Students");
+$xml->appendChild($students);
+
+$s1 = $xml->createElement("Student");
+$s1->appendChild($xml->createElement("StudentID", "101"));
+$s1->appendChild($xml->createElement("StudentName", "Rahul"));
+$s1->appendChild($xml->createElement("Age", "20"));
+$s1->appendChild($xml->createElement("Gender", "Male"));
+$s1->appendChild($xml->createElement("Program", "BCA"));
+$students->appendChild($s1);
+
+$s2 = $xml->createElement("Student");
+$s2->appendChild($xml->createElement("StudentID", "102"));
+$s2->appendChild($xml->createElement("StudentName", "Priya"));
+$s2->appendChild($xml->createElement("Age", "21"));
+$s2->appendChild($xml->createElement("Gender", "Female"));
+$s2->appendChild($xml->createElement("Program", "BBA"));
+$students->appendChild($s2);
+
+$s3 = $xml->createElement("Student");
+$s3->appendChild($xml->createElement("StudentID", "103"));
+$s3->appendChild($xml->createElement("StudentName", "Amit"));
+$s3->appendChild($xml->createElement("Age", "22"));
+$s3->appendChild($xml->createElement("Gender", "Male"));
+$s3->appendChild($xml->createElement("Program", "BSc"));
+$students->appendChild($s3);
+
+$s4 = $xml->createElement("Student");
+$s4->appendChild($xml->createElement("StudentID", "104"));
+$s4->appendChild($xml->createElement("StudentName", "Sneha"));
+$s4->appendChild($xml->createElement("Age", "20"));
+$s4->appendChild($xml->createElement("Gender", "Female"));
+$s4->appendChild($xml->createElement("Program", "BCom"));
+$students->appendChild($s4);
+
+$s5 = $xml->createElement("Student");
+$s5->appendChild($xml->createElement("StudentID", "105"));
+$s5->appendChild($xml->createElement("StudentName", "Karan"));
+$s5->appendChild($xml->createElement("Age", "23"));
+$s5->appendChild($xml->createElement("Gender", "Male"));
+$s5->appendChild($xml->createElement("Program", "MCA"));
+$students->appendChild($s5);
+
+$xml->save("Student.xml");
+
+echo "Student.xml file created successfully!";
+?>
+
+Q2:
+<?php
+$xml = new DOMDocument("1.0", "UTF-8");
+$xml->formatOutput = true;
+
+// Root element
+$employees = $xml->createElement("Employees");
+$xml->appendChild($employees);
+
+// -------- Employee 1 --------
+$e1 = $xml->createElement("Employee");
+$e1->appendChild($xml->createElement("EmployeeID", "201"));
+$e1->appendChild($xml->createElement("Name", "Amit Sharma"));
+$e1->appendChild($xml->createElement("Position", "Manager"));
+$e1->appendChild($xml->createElement("Department", "Sales"));
+$e1->appendChild($xml->createElement("DateOfJoining", "2020-05-10"));
+$employees->appendChild($e1);
+
+// -------- Employee 2 --------
+$e2 = $xml->createElement("Employee");
+$e2->appendChild($xml->createElement("EmployeeID", "202"));
+$e2->appendChild($xml->createElement("Name", "Priya Verma"));
+$e2->appendChild($xml->createElement("Position", "Developer"));
+$e2->appendChild($xml->createElement("Department", "IT"));
+$e2->appendChild($xml->createElement("DateOfJoining", "2021-03-15"));
+$employees->appendChild($e2);
+
+// -------- Employee 3 --------
+$e3 = $xml->createElement("Employee");
+$e3->appendChild($xml->createElement("EmployeeID", "203"));
+$e3->appendChild($xml->createElement("Name", "Rahul Mehta"));
+$e3->appendChild($xml->createElement("Position", "Analyst"));
+$e3->appendChild($xml->createElement("Department", "Finance"));
+$e3->appendChild($xml->createElement("DateOfJoining", "2019-07-20"));
+$employees->appendChild($e3);
+
+// -------- Employee 4 --------
+$e4 = $xml->createElement("Employee");
+$e4->appendChild($xml->createElement("EmployeeID", "204"));
+$e4->appendChild($xml->createElement("Name", "Sneha Patil"));
+$e4->appendChild($xml->createElement("Position", "HR Executive"));
+$e4->appendChild($xml->createElement("Department", "HR"));
+$e4->appendChild($xml->createElement("DateOfJoining", "2022-01-12"));
+$employees->appendChild($e4);
+
+// -------- Employee 5 --------
+$e5 = $xml->createElement("Employee");
+$e5->appendChild($xml->createElement("EmployeeID", "205"));
+$e5->appendChild($xml->createElement("Name", "Karan Singh"));
+$e5->appendChild($xml->createElement("Position", "Engineer"));
+$e5->appendChild($xml->createElement("Department", "Production"));
+$e5->appendChild($xml->createElement("DateOfJoining", "2018-11-05"));
+$employees->appendChild($e5);
+
+// Save XML file
+$xml->save("Employees.xml");
+
+echo "Employees.xml file created successfully!";
+?>
