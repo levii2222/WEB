@@ -1,0 +1,117 @@
+Q1:
+fac.html
+<html>
+<head>
+    <title>Factorial Calculator</title>
+</head>
+<body>
+
+<h2>Find Factorial</h2>
+
+<form method="post" action="factorial.php">
+    Enter Number: <input type="number" name="num" required><br><br>
+    <input type="submit" value="Calculate">
+</form>
+
+</body>
+</html>
+
+php
+
+<?php
+
+
+function factorial($n) {
+    if ($n < 0) {
+        return "Factorial not defined for negative numbers";
+    }
+
+    $fact = 1;
+
+    for ($i = 1; $i <= $n; $i++) {
+        $fact = $fact * $i;
+    }
+
+    return $fact;
+}
+
+
+if (isset($_POST['num'])) {
+
+    $num = (int) $_POST['num'];
+
+    $result = factorial($num);
+
+    echo "<h2>Factorial Result</h2>";
+    echo "Number: " . $num . "<br><br>";
+    echo "Factorial: " . $result;
+
+} else {
+    echo "Please enter a number!";
+}
+?>
+
+Q2:
+
+✅ OWASP ZAP Scanner – Short Note
+🔷 Introduction
+
+OWASP ZAP (Zed Attack Proxy) is one of the most popular open-source web application security testing tools developed by the OWASP.
+It is used to find security vulnerabilities in web applications during development and testing phases.
+
+ZAP acts as a proxy between the user (browser) and the web application, allowing it to intercept, inspect, and modify HTTP/HTTPS requests and responses.
+
+🔥 Key Features of OWASP ZAP
+✔ 1. Intercepting Proxy
+Captures and analyzes web traffic between browser and server
+Helps in identifying vulnerabilities
+✔ 2. Automated Scanner
+Automatically scans web applications
+Detects common vulnerabilities like SQL Injection, XSS, etc.
+✔ 3. Passive and Active Scanning
+Passive Scan: Observes traffic without modifying it
+Active Scan: Sends attacks to identify vulnerabilities
+✔ 4. Spidering (Crawling)
+Explores all pages of a web application
+Finds hidden URLs and inputs
+✔ 5. Fuzzer
+Sends random or unexpected data to inputs
+Helps detect security weaknesses
+✔ 6. Authentication Testing
+Tests login systems and session handling
+✔ 7. User-Friendly Interface
+Easy to use GUI
+Suitable for beginners and professionals
+⚙️ Working of OWASP ZAP
+Configure browser to use ZAP as proxy
+Send requests through ZAP
+ZAP captures and analyzes requests/responses
+Perform scanning (passive/active)
+Generate vulnerability report
+📌 Example: Detecting SQL Injection
+🔹 Scenario:
+
+A login page accepts username and password.
+
+🔹 Attack using ZAP:
+Intercept login request
+Modify input:
+' OR 1=1 --
+🔹 Result:
+ZAP detects vulnerability
+Login bypass occurs
+🔹 Output:
+
+ZAP report shows:
+
+SQL Injection vulnerability
+Risk level: High
+Suggested fix: Use prepared statements
+🎯 Advantages of OWASP ZAP
+Free and open-source
+Easy to use
+Supports automated and manual testing
+Regular updates
+⚠️ Limitations
+May produce false positives
+Requires proper configuration for advanced testing
