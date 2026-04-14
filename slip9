@@ -1,0 +1,206 @@
+Q1:
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bus Ticket Reservation</title>
+
+<style>
+
+table {
+    margin: auto;
+   
+}
+
+td {
+    padding: 8px;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Bus Ticket Reservation Form</h2>
+
+<form>
+<table border="1">
+
+<tr>
+    <td>Name</td>
+    <td><input type="text" name="name" required></td>
+</tr>
+
+<tr>
+    <td>Address</td>
+    <td><textarea name="address" rows="3" cols="20" required></textarea></td>
+</tr>
+
+<tr>
+    <td>Contact No</td>
+    <td><input type="tel" name="contact" required></td>
+</tr>
+
+<tr>
+    <td>Source Station</td>
+    <td>
+        <select name="source" required>
+            <option value="">Select</option>
+            <option>Mumbai</option>
+            <option>Pune</option>
+            <option>Nashik</option>
+            <option>Nagpur</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td>Destination Station</td>
+    <td>
+        <select name="destination" required>
+            <option value="">Select</option>
+            <option>Mumbai</option>
+            <option>Pune</option>
+            <option>Nashik</option>
+            <option>Nagpur</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td>Date of Booking</td>
+    <td><input type="date" name="booking_date" required></td>
+</tr>
+
+<tr>
+    <td>Date of Journey</td>
+    <td><input type="date" name="journey_date" required></td>
+</tr>
+
+<tr>
+    <td>No. of Passengers</td>
+    <td><input type="number" name="passengers" min="1" required></td>
+</tr>
+
+<tr>
+    <td>Name of Passenger</td>
+    <td><input type="text" name="passenger_name" required></td>
+</tr>
+
+<tr>
+    <td>Gender of Passenger</td>
+    <td>
+        <input type="radio" name="gender" value="male" required> Male
+        <input type="radio" name="gender" value="female"> Female
+    </td>
+</tr>
+<tr>
+    <td colspan="2" align="center">
+        <input type="submit" value="Book Ticket">
+        <input type="reset" value="Reset">
+    </td>
+</tr>
+
+</table>
+</form>
+
+</body>
+</html>
+
+Q2:
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Customer Registration Form</title>
+
+<style>
+table {
+    margin: auto;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 8px;
+}
+
+h2 {
+    text-align: center;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Departmental Store Customer Registration</h2>
+
+<form>
+<table border="1">
+
+<tr>
+    <td>Name</td>
+    <td><input type="text" name="name" required></td>
+</tr>
+
+<tr>
+    <td>Contact No</td>
+    <td><input type="tel" name="contact" required></td>
+</tr>
+
+<tr>
+    <td>Gender</td>
+    <td>
+        <input type="radio" name="gender" value="male" required> Male
+        <input type="radio" name="gender" value="female"> Female
+        <input type="radio" name="gender" value="other"> Other
+    </td>
+</tr>
+
+<tr>
+    <td>Preferred Days of Purchasing</td>
+    <td>
+        <input type="checkbox" name="day[]" value="Monday"> Monday
+        <input type="checkbox" name="day[]" value="Tuesday"> Tuesday
+        <input type="checkbox" name="day[]" value="Wednesday"> Wednesday
+        <input type="checkbox" name="day[]" value="Thursday"> Thursday
+        <input type="checkbox" name="day[]" value="Friday"> Friday
+        <input type="checkbox" name="day[]" value="Saturday"> Saturday
+        <input type="checkbox" name="day[]" value="Sunday"> Sunday
+    </td>
+</tr>
+
+<tr>
+    <td>Favorite Item</td>
+    <td>
+        <select name="item" required>
+            <option value="">Select Item</option>
+            <option>Groceries</option>
+            <option>Clothes</option>
+            <option>Electronics</option>
+            <option>Stationery</option>
+            <option>Cosmetics</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <td>Suggestions</td>
+    <td>
+        <textarea name="suggestions" rows="4" cols="25"></textarea>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2" align="center">
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </td>
+</tr>
+
+</table>
+</form>
+
+</body>
+</html>
